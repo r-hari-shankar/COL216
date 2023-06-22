@@ -1,0 +1,68 @@
+Testcase 1
+
+main :
+    addi $t0,$t0,10
+    sub $t1,$t0,3
+    add $t2,$t1,$t0
+    mul $t7,$t1,$t2
+
+Testcase 2
+
+main:
+    addi $t0, $t0, 10
+    beq $t0, $t0, comparison
+    sub $t1, $t0, 3
+    add $t2, $t1, $t0
+    j loop
+
+comparison:
+    sub $t0, $t0, 1
+    beq $t0, 9, sum
+    bne $t0, 0, difference
+
+loop:
+    mul $t7, $t1, t2
+
+sum:
+    add $t0, $t0, $t1
+
+difference:
+    sub $t0, $t0, $t0
+
+Testcase 3
+
+main:
+    addi $t0, $t0, 10
+    sub $t1, $t0, 3
+    add $t2, $t1, $t0
+    j loop
+
+comparison:
+    sub $t0, $t0, 1
+    beq $t0, 9, sum
+    bne $t0, 0, difference
+
+loop:
+    mul $t7, $t1, t2
+
+sum:
+    add $t0, $t0, $t1
+
+difference:
+    sub $t0, $t0, $t0
+
+Testcase 4
+
+main:
+    addi $t0, $t0, 10
+    beq $t0, $t0, comparison
+    sub $t1, $t0, 3
+    add $t2, $t1, $t0
+    sub $sp, $sp, 4
+    sw $t0, 4($sp)
+    sub $sp, $sp, 4
+    sw $t0, 4($sp)
+    sub $sp, $sp, 4
+    sw $t0, 4($sp)
+
+
